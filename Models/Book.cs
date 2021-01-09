@@ -18,5 +18,15 @@ namespace Zakarias_Ovidiu_Lab8.Models
 
         [Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
+
+        [Display(Name = "Publishing Date")]
+        [DataType(DataType.Date)]
+        public DateTime PublishingDate { get; set; }
+
+        public int PublisherID { get; set; }
+
+        public Publisher Publisher { get; set; } // navigation property
+
+        public ICollection<BookCategory> BookCategories { get; set; }
     }
 }

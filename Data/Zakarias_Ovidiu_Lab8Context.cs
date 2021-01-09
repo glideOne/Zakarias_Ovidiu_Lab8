@@ -15,5 +15,9 @@ namespace Zakarias_Ovidiu_Lab8.Data
         }
 
         public DbSet<Zakarias_Ovidiu_Lab8.Models.Book> Book { get; set; }
+
+        public DbSet<Zakarias_Ovidiu_Lab8.Models.Publisher> Publisher { get; set; }
+
+        public DbSet<Zakarias_Ovidiu_Lab8.Models.Category> Category { get; set; }
     }
 }

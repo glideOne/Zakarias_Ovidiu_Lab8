@@ -4,14 +4,16 @@ using Zakarias_Ovidiu_Lab8.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Zakarias_Ovidiu_Lab8.Migrations
 {
     [DbContext(typeof(Zakarias_Ovidiu_Lab8Context))]
-    partial class Zakarias_Ovidiu_Lab8ContextModelSnapshot : ModelSnapshot
+    [Migration("20201229224333_Publisher")]
+    partial class Publisher
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,43 +50,6 @@ namespace Zakarias_Ovidiu_Lab8.Migrations
                     b.ToTable("Book");
                 });
 
-            modelBuilder.Entity("Zakarias_Ovidiu_Lab8.Models.BookCategory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BookID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BookID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("BookCategory");
-                });
-
-            modelBuilder.Entity("Zakarias_Ovidiu_Lab8.Models.Category", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CategoryName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Category");
-                });
-
             modelBuilder.Entity("Zakarias_Ovidiu_Lab8.Models.Publisher", b =>
                 {
                     b.Property<int>("ID")
@@ -105,21 +70,6 @@ namespace Zakarias_Ovidiu_Lab8.Migrations
                     b.HasOne("Zakarias_Ovidiu_Lab8.Models.Publisher", "Publisher")
                         .WithMany("Books")
                         .HasForeignKey("PublisherID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Zakarias_Ovidiu_Lab8.Models.BookCategory", b =>
-                {
-                    b.HasOne("Zakarias_Ovidiu_Lab8.Models.Book", "Book")
-                        .WithMany("BookCategories")
-                        .HasForeignKey("BookID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Zakarias_Ovidiu_Lab8.Models.Category", "Category")
-                        .WithMany("BookCategories")
-                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

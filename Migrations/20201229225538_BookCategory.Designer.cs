@@ -4,14 +4,16 @@ using Zakarias_Ovidiu_Lab8.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Zakarias_Ovidiu_Lab8.Migrations
 {
     [DbContext(typeof(Zakarias_Ovidiu_Lab8Context))]
-    partial class Zakarias_Ovidiu_Lab8ContextModelSnapshot : ModelSnapshot
+    [Migration("20201229225538_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,7 +50,7 @@ namespace Zakarias_Ovidiu_Lab8.Migrations
                     b.ToTable("Book");
                 });
 
-            modelBuilder.Entity("Zakarias_Ovidiu_Lab8.Models.BookCategory", b =>
+            modelBuilder.Entity("HusZakarias_Ovidiu_Lab8zar_Otilia_Lab8.Models.BookCategory", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
